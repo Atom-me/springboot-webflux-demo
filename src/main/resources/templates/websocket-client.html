@@ -22,6 +22,7 @@
 </body>
 </html>
 <script>
+    // 基于HTTP协议的WebSocket应用本质上来讲是允许跨域进行访问的，所以只要存在相关的客户端，配置上正确的地址即可。
     var wsServer = 'ws://127.0.0.1:8080/echo';
     var websocket = new WebSocket(wsServer);
     websocket.onopen = function (evt) {

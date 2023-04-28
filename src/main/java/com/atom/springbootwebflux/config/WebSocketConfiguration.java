@@ -26,12 +26,16 @@ public class WebSocketConfiguration {
     @Autowired
     @Bean
     public HandlerMapping webSocketMapping(final EchoHandler echoHandler) {
+        //定义所有的映射集合，通过这个集合来处理
         final Map<String, WebSocketHandler> map = new HashMap<>();
+        //配置映射模式
         map.put("/echo", echoHandler);
 
+        //映射处理
         final SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         mapping.setOrder(Ordered.HIGHEST_PRECEDENCE);
         mapping.setUrlMap(map);
+
         return mapping;
     }
 
